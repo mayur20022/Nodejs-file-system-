@@ -10,7 +10,7 @@
 </head>
 
 <body class="bg-zinc-900 text-white flex flex-col justify-center items-center min-h-screen p-10">
-    <div class="form bg-gray-700 p-10 rounded-lg shadow-lg w-96">
+    <div class="form bg-gray-700 p-7 rounded-lg shadow-lg w-96">
         <form class="flex flex-col" action="/submit" method="post">
             <div class="mt-5 flex flex-col">
                 <label for="title" class="mb-2">Title:</label>
@@ -39,7 +39,10 @@
                         <h2 class="text-lg font-bold">
                             <%= val %>
                         </h2>
+                        <div class=" flex justify-between items-center">
                        <a class="text-blue-400 inline-block mt-3" href="/files/<%= val%>">Read More</a>
+                       <a class="text-gray-400 inline-block mt-3" href="/edit/<%= val%>">Edit File</a>
+                    </div>
                     </div>
                     <% }) %>
                         <% } else { %>
