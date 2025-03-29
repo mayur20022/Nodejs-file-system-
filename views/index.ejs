@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Page</title>
+    <link rel="stylesheet" href="/stylecss/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-zinc-900 text-white flex flex-col justify-center items-center min-h-screen p-10">
+    <div class="form bg-gray-700 p-10 rounded-lg shadow-lg w-96">
+        <form class="flex flex-col" action="/submit" method="post">
+            <div class="mt-5 flex flex-col">
+                <label for="title" class="mb-2">Title:</label>
+                <input type="text" id="title" name="title" placeholder="Enter your title" required
+                    class="bg-gray-800 p-2 rounded border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <div class="mt-5 flex flex-col">
+                <label for="description" class="mb-2">Description:</label>
+                <textarea id="description" name="description" rows="4"
+                    class="resize-none bg-gray-800 p-2 rounded border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Enter your description" required></textarea>
+            </div>
+
+            <button
+                class="bg-blue-600 hover:bg-blue-700 p-2 mt-4 rounded text-white font-semibold transition duration-300">Submit</button>
+        </form>
+    </div>
+
+    <div class="mt-5 w-full flex flex-col justify-center items-center">
+
+        <div class="grid grid-cols-4  gap-4 justify-center items-center">
+        <% if (files.length> 0) { %>
+            <% files.forEach((val)=> { %>
+                    <div class="task w-72 px-3 py-4 bg-gray-700 text-white text-center mb-2">
+                        <h2 class="text-lg font-bold">
+                            <%= val %>
+                        </h2>
+                       <a class="text-blue-400 inline-block mt-3" href="/files/<%= val%>">Read More</a>
+                    </div>
+                    <% }) %>
+                        <% } else { %>
+                            <h3 class="text-gray-500 text-center mx-auto">No files uploaded</h3>
+                            <% } %>
+
+        </div>
+    </div>
+
+    <script src="/jsscript/script.js"></script>
+</body>
+
+</html>
